@@ -9,13 +9,21 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+import javax.swing.SwingUtilities;
 
-public class GUI {
+public class GUI implements Runnable{
 	protected JTextField display;
 	protected boolean isScientificCalc = true;
 	protected JButton calcSwitch;
 	
-	public GUI()
+	public static void main(String[] args)
+	{
+		GUI gui = new GUI();
+		SwingUtilities.invokeLater(gui);
+	}
+	
+	@Override
+	public void run()
 	{
 		JFrame frame = new JFrame("Calculator");
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
